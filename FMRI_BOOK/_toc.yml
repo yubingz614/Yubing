@@ -1,0 +1,13 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: ""
+    chapters:
+    - file: Account/Getting Access
+    - file: fMRI/Daris
+    - file: fMRI/Mediaflux
+    - file: fMRI/BIDS
+    - file: fMRI/Preprocessing

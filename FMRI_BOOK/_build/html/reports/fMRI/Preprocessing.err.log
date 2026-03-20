@@ -1,0 +1,93 @@
+Traceback (most recent call last):
+  File "/Users/yubing/anaconda3/lib/python3.11/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/Users/yubing/anaconda3/lib/python3.11/site-packages/nbclient/client.py", line 1305, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yubing/anaconda3/lib/python3.11/site-packages/jupyter_core/utils/__init__.py", line 173, in wrapped
+    return loop.run_until_complete(inner)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/yubing/anaconda3/lib/python3.11/asyncio/base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "/Users/yubing/anaconda3/lib/python3.11/site-packages/nbclient/client.py", line 705, in async_execute
+    await self.async_execute_cell(
+  File "/Users/yubing/anaconda3/lib/python3.11/site-packages/nbclient/client.py", line 1058, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/yubing/anaconda3/lib/python3.11/site-packages/nbclient/client.py", line 914, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+```` {admonition} Example Script
+:class: hint
+
+```bash
+#!/bin/bash
+
+#SBATCH --account=punim2033
+#SBATCH --ntasks=1
+#SBATCH --cpus-per-task=32
+#SBATCH --nodes=1
+#SBATCH --array=1
+#SBATCH --job-name='fmriprep'
+#SBATCH --time=0-20:00:00
+#SBATCH -o /data/gpfs/projects/punim2033/safety_learning/slurm_output/fmriprep/slurm.%j.%N.out
+#SBATCH -e /data/gpfs/projects/punim2033/safety_learning/slurm_output/fmriprep/slurm.%j.%N.err
+
+# load modules
+module purge
+module load GCC/11.3.0
+module load OpenMPI/4.1.4
+module load minc-toolkit/1.9.18.2
+module load Apptainer/1.2.3
+
+# Suffix for directory naming
+suffix="safety_fmri_prep"
+
+# BIDS root directory
+share_dir=/data/gpfs/projects/punim2033/safety_learning
+bids_dir=${share_dir}/safety_fmri_bids
+
+# extract sub id from array and change format
+export sub=${SLURM_ARRAY_TASK_ID}
+
+if [[ ${#sub} == 1 ]]
+then
+	export sub=0$sub
+fi
+
+# Place outside BIDS root directory, this allows rerun with minimal reprocessing
+work_dir=${share_dir}/work/${suffix}
+mkdir -p ${work_dir}
+out_dir=$share_dir/${suffix}
+mkdir -p ${out_dir}
+
+# fmriprep
+apptainer exec --cleanenv \
+	-B ${bids_dir}:/data \
+	-B ${out_dir}:/out \
+	-B ${work_dir}:/work \
+    -B ./license.txt:/license.txt \
+	./fmriprep-23.2.1.sif \
+	fmriprep /data /out participant \
+    --participant-label ${sub} \
+    --nthreads 16 \
+    --fs-license-file /license.txt \
+	-w /work \
+	--skip_bids_validation \
+	--output-spaces anat func MNI152NLin2009cAsym:res-native \
+    --ignore slicetiming
+
+my-job-stats -a -n -s
+
+```
+````
+------------------
+
+
+[0;36m  Cell [0;32mIn[1], line 1[0;36m[0m
+[0;31m    ```` {admonition} Example Script[0m
+[0m    ^[0m
+[0;31mSyntaxError[0m[0;31m:[0m invalid syntax
+
+
