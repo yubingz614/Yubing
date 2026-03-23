@@ -1,4 +1,4 @@
-name: deploy-book
+name: deploy-books
 
 on:
   push:
@@ -32,14 +32,53 @@ jobs:
         run: |
           pip install jupyter-book
 
-      - name: Build the book
+      - name: Build AND
+        run: |
+          jupyter-book build AND
+
+      - name: Build FMRI_BOOK
         run: |
           jupyter-book build FMRI_BOOK
+
+      - name: Build Training
+        run: |
+          jupyter-book build Training
+
+      - name: Prepare combined site
+        run: |
+          mkdir -p site/AND
+          mkdir -p site/FMRI_BOOK
+          mkdir -p site/Training
+
+          cp -R AND/_build/html/* site/AND/
+          cp -R FMRI_BOOK/_build/html/* site/FMRI_BOOK/
+          cp -R Training/_build/html/* site/Training/
+
+          cat > site/index.html <<'EOF'
+          <!DOCTYPE html>
+          <html lang="en">
+          <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Books</title>
+          </head>
+          <body>
+            <h1>Available sites</h1>
+            <ul>
+              <li><a href="./AND/">AND</a></li>
+              <li><a href="./FMRI_BOOK/">FMRI_BOOK</a></li>
+              <li><a href="./Training/">Training</a></li>
+            </ul>
+          </body>
+          </html>
+          EOF
+
+          touch site/.nojekyll
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v4
         with:
-          path: FMRI_BOOK/_build/html
+          path: site
 
       - name: Deploy to GitHub Pages
         id: deployment
