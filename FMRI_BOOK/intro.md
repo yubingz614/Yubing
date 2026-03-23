@@ -3,7 +3,7 @@
 
 After collecting neuroimaging data, you'll need to convert it into a usable format and preprocess it before data analysis. You'll be working across three platforms throughout this process: DaRIS (raw data storage), Mediaflux (long-term storage), and Spartan (data processing).
 
-The basic steps are:
+The basic steps include:
 1.	Downloading data from DaRIS to Mediaflux
 2.  Transferring data from Mediaflux to Spartan
 3.  Organizing data into BIDS format

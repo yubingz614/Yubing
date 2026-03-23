@@ -1,0 +1,75 @@
+Traceback (most recent call last):
+  File "/Users/davidcui/Documents/ANDLabLocal/.venv/lib/python3.13/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+    ~~~~~~~~~^
+        nb,
+        ^^^
+    ...<4 lines>...
+        **kwargs,
+        ^^^^^^^^^
+    )
+    ^
+  File "/Users/davidcui/Documents/ANDLabLocal/.venv/lib/python3.13/site-packages/nbclient/client.py", line 1319, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^
+  File "/Users/davidcui/Documents/ANDLabLocal/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 165, in wrapped
+    return loop.run_until_complete(inner)
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.13/lib/python3.13/asyncio/base_events.py", line 721, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "/Users/davidcui/Documents/ANDLabLocal/.venv/lib/python3.13/site-packages/nbclient/client.py", line 709, in async_execute
+    await self.async_execute_cell(
+        cell, index, execution_count=self.code_cells_executed + 1
+    )
+  File "/Users/davidcui/Documents/ANDLabLocal/.venv/lib/python3.13/site-packages/nbclient/client.py", line 1062, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/Users/davidcui/Documents/ANDLabLocal/.venv/lib/python3.13/site-packages/nbclient/client.py", line 918, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Establish a dictionary with your subjects (keys) and the assignment marks you've gotten on them (values)
+assignments = {
+    "Developmental": [80, 77, 88],
+    "Social": [76, 78, 78],
+    "Cognitive": [58, 62, 66],
+    "Personality & Social": [84, 82, 79]
+}
+
+# Establish a function that has an input for the exam's weight on the overall mark
+def min_exam_score(exam_weight): 
+    # Establish a new dictionary, with the subject as the key and minimum exam score as the value
+    min_scores = {}  
+
+    for subject in assignments: # This code will repeat for each subject 
+        scores = assignments[subject] # The square bracket tells Python to grab the scores from the subject that is currently "being looked at" in the loop
+        assignment_average = sum(scores) / 3 # You can do maths in Python!
+        required_exam_score = (80 - assignment_average*(1-exam_weight))/exam_weight
+        min_scores[subject] = required_exam_score # This assigns the minimum exam score to the subject
+    
+    return min_scores 
+
+print(min_scores) # see below!
+min_scores = min_exam_score(0.4) # This input into the function we made means that the exam is worth 40% of the final mark
+
+for subject in min_scores:
+    score = min_scores[subject]
+    # determines whether you can actually get a H1 or not
+    if score <= 100: 
+        print("To achieve a H1 in " + subject + " Psychology, you need a minimum exam score of: " + str(score))
+    else:
+        print("You can't get a H1 in " + subject + " Psychology. sorry :(")
+------------------
+
+
+[31m---------------------------------------------------------------------------[39m
+[31mNameError[39m                                 Traceback (most recent call last)
+[36mCell[39m[36m [39m[32mIn[11][39m[32m, line 22[39m
+[32m     18[39m         min_scores[subject] = required_exam_score [38;5;66;03m# This assigns the minimum exam score to the subject[39;00m
+[32m     20[39m     [38;5;28;01mreturn[39;00m min_scores 
+[32m---> [39m[32m22[39m [38;5;28mprint[39m([43mmin_scores[49m) [38;5;66;03m# see below![39;00m
+[32m     23[39m min_scores = min_exam_score([32m0.4[39m) [38;5;66;03m# This input into the function we made means that the exam is worth 40% of the final mark[39;00m
+[32m     25[39m [38;5;28;01mfor[39;00m subject [38;5;129;01min[39;00m min_scores:
+
+[31mNameError[39m: name 'min_scores' is not defined
+
