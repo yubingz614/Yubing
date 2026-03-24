@@ -32,46 +32,35 @@ jobs:
         run: |
           pip install jupyter-book
 
-      - name: Build AND
+      - name: Build Index
         run: |
-          jupyter-book build AND
+          jupyter-book build Index
 
-      - name: Build FMRI_BOOK
+      - name: Build Coding
         run: |
-          jupyter-book build FMRI_BOOK
+          jupyter-book build Coding
 
-      - name: Build Training
+      - name: Build fMRI_Preprocessing
         run: |
-          jupyter-book build Training
+          jupyter-book build fMRI_Preprocessing
+
+      - name: Build Questionnaire
+        run: |
+          jupyter-book build Questionnaire
 
       - name: Prepare combined site
         run: |
-          mkdir -p site/AND
-          mkdir -p site/FMRI_BOOK
-          mkdir -p site/Training
+          mkdir -p site/Coding
+          mkdir -p site/fMRI_Preprocessing
+          mkdir -p site/Questionnaire
 
-          cp -R AND/_build/html/* site/AND/
-          cp -R FMRI_BOOK/_build/html/* site/FMRI_BOOK/
-          cp -R Training/_build/html/* site/Training/
+          # Use Index as the main landing page at site root
+          cp -R Index/_build/html/* site/
 
-          cat > site/index.html <<'EOF'
-          <!DOCTYPE html>
-          <html lang="en">
-          <head>
-            <meta charset="UTF-8">
-            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Books</title>
-          </head>
-          <body>
-            <h1>Available sites</h1>
-            <ul>
-              <li><a href="./AND/">AND</a></li>
-              <li><a href="./FMRI_BOOK/">FMRI_BOOK</a></li>
-              <li><a href="./Training/">Training</a></li>
-            </ul>
-          </body>
-          </html>
-          EOF
+          # Put the other books in subfolders
+          cp -R Coding/_build/html/* site/Coding/
+          cp -R fMRI_Preprocessing/_build/html/* site/fMRI_Preprocessing/
+          cp -R Questionnaire/_build/html/* site/Questionnaire/
 
           touch site/.nojekyll
 

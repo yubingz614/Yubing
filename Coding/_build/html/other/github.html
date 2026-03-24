@@ -1,0 +1,600 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>3b. GitHub &#8212; AND Lab Coding &amp; Data Wrangling</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=9c3e77be" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.11b39860a7a0cbfd473a3ad8a317855267ff0bd372690045ca344a6b62be495e.css?v=8cd3d715" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js?v=1ae7504c"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'other/github';</script>
+    <link rel="icon" href="../_static/favicon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3c. Spartan (UoM HPC)" href="spartan.html" />
+    <link rel="prev" title="3a. Basic Shell (Bash/Zsh/Cmd)" href="bash.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="AND Lab Coding & Data Wrangling - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="AND Lab Coding & Data Wrangling - Home"/>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Introduction
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">1. Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted/prereq.html">1a. Prerequisites</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted/vscode.html">1b. Visual Studio Code</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../gettingstarted/chatgpt.html">1c. Learning Resources</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">2. Data Wrangling</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../python/codingbasics.html">2a. Coding Fundamentals</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../python/pandas.html">2b. Data Wrangling 101</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../python/dfcommands.html">Extra: Pandas DataFrame Methods</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/excel.html">2c. Python, Pandas &amp; Excel</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/jupyter.html">2d. Jupyter Notebook</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/pythontoR.html">2e. Python &amp; R</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">3. Miscellaneous</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="bash.html">3a. Basic Shell (Bash/Zsh/Cmd)</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">3b. GitHub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="spartan.html">3c. Spartan (UoM HPC)</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/other/github.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>3b. GitHub</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-website">The Website</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git">Git</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-github-workflow">Core Github Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-the-repository">Cloning the Repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-changes">Making Changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uploading-pushing-changes-to-github">Uploading (Pushing) changes to GitHub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pulling-updates">Pulling Updates</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="b-github">
+<h1>3b. GitHub<a class="headerlink" href="#b-github" title="Link to this heading">#</a></h1>
+<p>GitHub is basically social media for computer people and like any social media the best way to figure out how to use it is just to get on the website and have a look around: <a class="reference external" href="https://github.com/">www.github.com</a>.</p>
+<p><strong>Create an account while you’re there!</strong></p>
+<p>If a phone is all you need to create and share content on Instagram/TikTok, a little bit of code is all you need to be a content creator on GitHub.</p>
+<section id="the-website">
+<h2>The Website<a class="headerlink" href="#the-website" title="Link to this heading">#</a></h2>
+<p>If you’re just been given the link to the website and you don’t need to touch anything other than just download or look at stuff, you can do this on the website.</p>
+<p>When you are looking at a project’s page (<em><strong>repository</strong></em>), you will see a green <strong>“&lt;&gt; Code”</strong> button. Click on this, and you will be able to download (<em><strong>clone</strong></em>) the files by clicking “download zip”.</p>
+<div class="note admonition">
+<p class="admonition-title">GitHub Concepts</p>
+<p><strong>Repository</strong></p>
+<p>Repositories are like a project’s profile page - it’s where all the files related to a project is stored, as well as a track of file history.</p>
+<p><strong>Branches</strong></p>
+<p>You may notice a button saying “main” on top left of the files when looking at a repository. Clicking on this will show different <strong>branches</strong> of the project - these are like different workspaces within the project. This is useful for working on certain parts of the project without affecting the main branch.</p>
+<p><strong>Cloning</strong></p>
+<p>Nerdy way of saying “downloading literally the whole project and all the files”.</p>
+<p><strong>Pull</strong></p>
+<p>Pulling means downloading just the latest updates of the project, keeping your local files up to date with what’s been happening in the project without downloading the whole thing.</p>
+<p><strong>Pull Request</strong></p>
+<p>Pull requests are how you propose changes from one branch to another (for example, one aspect of the project to the main branch). This lets others have a look at your proposed changes before it is</p>
+<p><strong>Push</strong></p>
+<p>Pushing means uploading your version of the project’s files (or just a single file) to GitHub.</p>
+<p><strong>Commits</strong></p>
+<p>Commits are like making savefiles or checkpoints - when making a push, you can make a note of what you’ve changed so everyone can track what the change was. It also means that if something goes wrong with your new code, you can go back to an earlier commit (an earlier checkpoint) to backtrack.</p>
+</div>
+</section>
+<section id="git">
+<h2>Git<a class="headerlink" href="#git" title="Link to this heading">#</a></h2>
+<p>Favourite insult, but also the tool you will need to work with GitHub - download Git <a class="reference external" href="https://git-scm.com/">here</a>.</p>
+<div class="admonition-logging-into-git admonition">
+<p class="admonition-title">Logging into Git</p>
+<p><strong>Configure Git</strong> (set up your name and email):
+Before using Git, you need to identify yourself so that your contributions are properly recorded. Run these commands in the terminal:</p>
+<p><code class="docutils literal notranslate"> <span class="pre">sh</span>&#160; <span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">user.name</span> <span class="pre">&quot;Your</span> <span class="pre">Name&quot;</span>&#160; <span class="pre">git</span> <span class="pre">config</span> <span class="pre">--global</span> <span class="pre">user.email</span> <span class="pre">&quot;your.email&#64;example.com&quot;</span> </code></p>
+<p>Replace “Your Name” with your actual name and “<a class="reference external" href="mailto:your&#46;email&#37;&#52;&#48;example&#46;com">your<span>&#46;</span>email<span>&#64;</span>example<span>&#46;</span>com</a>” with your email address.</p>
+<p><strong>Authenticate with GitHub</strong>:
+GitHub no longer allows direct password authentication for security reasons. Instead, you need to use a Personal Access Token (PAT).<br />
+Go to GitHub, navigate to <code class="docutils literal notranslate"><span class="pre">Settings</span> <span class="pre">&gt;</span> <span class="pre">Developer</span> <span class="pre">settings</span> <span class="pre">&gt;</span> <span class="pre">Personal</span> <span class="pre">Access</span> <span class="pre">Tokens</span></code>, and generate a new token.<br />
+When Git asks for your password, use the token instead.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You can also do this for the most part in VSCode, so if the above looked like effort, look below. At some point, VSCode will automatically ask you to login.</p>
+</div>
+</section>
+<section id="core-github-workflow">
+<h2>Core Github Workflow<a class="headerlink" href="#core-github-workflow" title="Link to this heading">#</a></h2>
+<p>If you happen to actually be coding and expected to contribute to a project’s repository, good luck.</p>
+<p>Let’s do this in VSCode since that’s already what we’re using.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>VSCode has built-in Git support, so as long as you have Git installed, you’re all good. If you want extra features, you can search up Github extensions in VSCode to get more out of it, but it’s not necessary.</p>
+</div>
+<p>Instead of downloading a zip directly from GitHub, let’s do this in VSCode.</p>
+<section id="cloning-the-repository">
+<h3>Cloning the Repository<a class="headerlink" href="#cloning-the-repository" title="Link to this heading">#</a></h3>
+<ol class="arabic simple">
+<li><p>Pick a convenient workspace/directory to code in (e.g., a new folder in your Documents folder).</p></li>
+<li><p>Click the big search bar at the top of VSCode, and click “Show and Run Commands”.</p></li>
+<li><p>Type in “Git: Clone” and select that command.</p></li>
+<li><p>Enter the GitHub repository’s URL - you can find this the same way as downloading a zip, click the “&lt;&gt; Code” button and copy-paste the link.</p></li>
+<li><p>Choose the folder you’ve picked. Open the folder in VSCode.</p></li>
+</ol>
+</section>
+<section id="making-changes">
+<h3>Making Changes<a class="headerlink" href="#making-changes" title="Link to this heading">#</a></h3>
+<p>Now that the repo is cloned, you can start making changes to files.</p>
+<ol class="arabic simple" start="6">
+<li><p>(Optional) Click on the Source Control icon in the left sidebar (or press Ctrl + Shift + G). This will show all the changes you’ve made to files.</p></li>
+<li><p>Click the + (plus) icon next to each changed file to stage it, or click “+” next to “Changes” to stage all files.</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The code/terminal equivalent to this is <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">{filename}</span></code> to add a stage one file, or <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span> <span class="pre">.</span></code> to stage everything.</p>
+</div>
+</section>
+<section id="uploading-pushing-changes-to-github">
+<h3>Uploading (Pushing) changes to GitHub<a class="headerlink" href="#uploading-pushing-changes-to-github" title="Link to this heading">#</a></h3>
+<ol class="arabic simple" start="8">
+<li><p>Commit the Changes (git commit -m “message”): In the text box at the top, write a short message describing what you changed.	Click the ✔️ checkmark or press Ctrl + Enter to commit.	This saves your changes locally but doesn’t upload them yet!</p></li>
+</ol>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The code/terminal equivalent to this is <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span> <span class="pre">&quot;description</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">changes</span> <span class="pre">you</span> <span class="pre">made&quot;&quot;</span></code></p>
+</div>
+<ol class="arabic simple" start="9">
+<li><p>Push the changes: In VSCode, click the “Sync Changes” 🔄 button. Or, in the terminal, type <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">{the</span> <span class="pre">branch</span> <span class="pre">of</span> <span class="pre">your</span> <span class="pre">choosing}</span></code>.</p></li>
+</ol>
+</section>
+<section id="pulling-updates">
+<h3>Pulling Updates<a class="headerlink" href="#pulling-updates" title="Link to this heading">#</a></h3>
+<p>If someone else changes stuff in the repository, you can update your version of the files.</p>
+<ul class="simple">
+<li><p>In VSCode, click the “Sync Changes” 🔄 button.</p></li>
+<li><p>or in the terminal, type in <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">origin</span> <span class="pre">main</span></code></p></li>
+</ul>
+<aside class="topic">
+<p class="topic-title">Traditional GitHub Workflow:</p>
+<p>The traditional way to do all of these steps are to do it in the terminal. This might end up being more intuitive for you. The core workflow is.</p>
+<ol class="arabic simple">
+<li><p>Cloning: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">clone</span></code> + repository URL</p></li>
+<li><p>Staging: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">add</span></code> + either the filename OR <code class="docutils literal notranslate"><span class="pre">.</span></code> to stage everything.</p></li>
+<li><p>Commit: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">commit</span> <span class="pre">-m</span></code> + a brief description of what you’ve done</p></li>
+<li><p>Pushing: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span></code> (if you need to push to a specific branch, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span></code> + branch)</p></li>
+<li><p>Pulling: <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span></code> (if you need to pull from a specific branch, <code class="docutils literal notranslate"><span class="pre">git</span> <span class="pre">pull</span> <span class="pre">origin</span></code> + branch)</p></li>
+</ol>
+</aside>
+</section>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./other"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="bash.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">3a. Basic Shell (Bash/Zsh/Cmd)</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="spartan.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">3c. Spartan (UoM HPC)</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-website">The Website</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#git">Git</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#core-github-workflow">Core Github Workflow</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#cloning-the-repository">Cloning the Repository</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#making-changes">Making Changes</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#uploading-pushing-changes-to-github">Uploading (Pushing) changes to GitHub</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pulling-updates">Pulling Updates</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By David Cui (Affective Neuroscience and Development Lab)
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright © 2025 University of Melbourne. All Rights Reserved.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

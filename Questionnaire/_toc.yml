@@ -1,0 +1,19 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: "JSPsych"
+    chapters:
+    - file: JSPsych/introduction
+    - file: JSPsych/introduction_to_files
+    - file: JSPsych/individual_file
+    - file: JSPsych/combining_individual_files
+    - file: JSPsych/uploading
+    - file: JSPsych/data
+    - file: JSPsych/other_things
+    - file: JSPsych/trouble_shooting
+  - caption: "Pavlovia"
+    chapters:
+    - file: Pavlovia/pavlovia
