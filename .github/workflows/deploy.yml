@@ -1,4 +1,4 @@
-name: deploy-books
+name: deploy-AND_Lab-books
 
 on:
   push:

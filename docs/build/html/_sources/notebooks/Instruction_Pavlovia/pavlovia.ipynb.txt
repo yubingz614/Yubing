@@ -1,0 +1,114 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "3a8a33b1",
+   "metadata": {},
+   "source": [
+    "# Pushing questionnaires to Pavlovia"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "32422628",
+   "metadata": {},
+   "source": [
+    "For the AND lab"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "f143e7a2",
+   "metadata": {},
+   "source": [
+    "If you haven’t used Gitlab or Github before, you are basically cloning an empty folder (that you created for your project) from the server to your local device, adding files/making changes to this folder, and sending things back to the server."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ae934253",
+   "metadata": {},
+   "source": [
+    "1.\tAfter creating your Pavlovia account, go to Gitlab Pavlovia: [Pavlovia Github](https://gitlab.pavlovia.org/dashboard/projects)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "ccc8c015",
+   "metadata": {},
+   "source": [
+    "2.\tClick “new project” on the right corner and then “create blank project”"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a980664f",
+   "metadata": {},
+   "source": [
+    "![create new project](./images/Picture1.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "5c6293b6",
+   "metadata": {},
+   "source": [
+    "\n",
+    "<span style=\"color: red; font-weight: bold;\">*** Either credits or a license are necessary to run your experiment. If you need to use Sarah’s license, please ask her for her account details and create a new project using her account. ***</span> "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "13efb784",
+   "metadata": {},
+   "source": [
+    "You should have something like this:\n",
+    "![](./images/Picture2.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "6be0d4ee",
+   "metadata": {},
+   "source": [
+    "\n",
+    "<span style=\"color: red; font-weight: bold;\">*** If you used Sarah’s account to create the new project and would like to run it later using your own account, you can share the project with yourself (“Members”). ***</span> "
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "7864f52b",
+   "metadata": {},
+   "source": [
+    "![](./images/Picture3.png)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a0929f0c",
+   "metadata": {},
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": ".venv",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.5"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
